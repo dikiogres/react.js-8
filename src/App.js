@@ -1,8 +1,28 @@
 import React, { Component } from 'react';
-import { Alert, Button, Container } from 'reactstrap';
-import styles from './style.module.css';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+//import { Alert, Button, Container } from 'reactstrap';
+//import styles from './style.module.css';
+
+import Home from '../pages/Home';
+import About from '../pages/About';
+import Contact from '../pages/Contact';
+import NotFound from '../pages/NotFound';
+
 
 class App extends Component {
+  render(){
+    return(
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/about" component={About}/>
+          <Route exact path="/contact" component={Contact}/>
+          <Route component={NotFound}/>
+        </Switch>
+      </Router>
+    );
+  }
+  /*
   state = { danger: false };
 
   handleOnClick = event => {
@@ -19,6 +39,7 @@ class App extends Component {
       </Container>
     )
   }
+  */
 }
 
 export default App;
